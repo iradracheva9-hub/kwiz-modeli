@@ -12,6 +12,8 @@
             --accent-hover: #4f46e5;
             --text-color: #f8fafc;
             --text-muted: #94a3b8;
+            --cta-bg: rgba(99, 102, 241, 0.15);
+            --cta-border: #6366f1;
         }
 
         * {
@@ -122,6 +124,7 @@
             cursor: pointer;
             transition: background 0.2s;
             text-align: center;
+            text-decoration: none;
         }
 
         .btn-main:hover {
@@ -145,53 +148,60 @@
             font-size: 16px;
             color: #a5b4fc;
         }
-
-        .result-text ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .result-text li {
-            margin-bottom: 8px;
-            font-size: 15px;
-            color: #e2e8f0;
-            line-height: 1.4;
-        }
         
         .result-text p {
             line-height: 1.5;
             font-size: 15px;
             color: #e2e8f0;
         }
+
+        /* Блок призыва к действию (CTA) */
+        .cta-box {
+            background-color: var(--cta-bg);
+            border: 1px dashed var(--cta-border);
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .cta-box p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #f1f5f9;
+        }
+
+        .cta-box b.keyword {
+            color: #f43f5e;
+            background-color: rgba(244, 63, 94, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
 
 <div class="quiz-container">
-    <!-- СТАРТОВЫЙ ЭКРАН -->
     <div id="start-screen" class="screen active">
         <h1>Какая модель продвижения в инфобизнесе подходит именно вам?</h1>
         <p class="subtitle">Пройдите короткий тест из 5 вопросов, чтобы узнать, стоит ли вам строить автоворонки, запускать клуб или продавать через контент.</p>
         <button class="btn-main" onclick="startQuiz()">Начать тест</button>
     </div>
 
-    <!-- ЭКРАН ВОПРОСОВ -->
     <div id="question-screen" class="screen">
         <div class="progress-bar"><div id="progress" class="progress"></div></div>
         <div id="question-title" class="question-title">Текст вопроса</div>
         <div id="options" class="options-list">
-            <!-- Кнопки ответов будут создаваться динамически -->
-        </div>
+            </div>
     </div>
 
-    <!-- ЭКРАН РЕЗУЛЬТАТОВ -->
     <div id="result-screen" class="screen">
         <h1 style="text-align: left; margin-bottom: 5px;">Ваш результат:</h1>
         <div id="result-model-tag" class="result-model">Модель</div>
         <div id="result-content" class="result-text">
-            <!-- Текст результата будет подставляться сюда -->
-        </div>
-        <button class="btn-main" style="margin-top: 25px;" onclick="location.reload()">Пройти заново</button>
+            </div>
+        <a href="https://t.me/m/ZlqqbV9eNTYy" target="_blank" class="btn-main" style="margin-top: 25px;">ХОЧУ ПЛАН</a>
     </div>
 </div>
 
@@ -244,18 +254,27 @@
     const resultsData = {
         A: {
             title: "Индивидуальная модель 💎",
-            desc: `<p><b>Ваш главный инсайт:</b> Вам вообще не нужны сложные автоворонки, сайты, отделы продаж и запуски. Попытка построить «завод» на маленьком блоге просто сожжет ваше время и энергию. Ваша суперсила сейчас - <b>индивидуальная работа и продажи на высокие чеки</b>.</p>
-            </ul>`
+            desc: `<p><b>Ваш главный инсайт:</b> Вам вообще не нужны сложные автоворонки, сайты, отделы продаж и запуски. Попытка построить «завод» на маленьком блоге просто сожжет ваше время и энергию. Ваша суперсила сейчас - <b>личная вовлеченность и продажи на высокие чеки</b>.</p>
+            
+            <div class="cta-box">
+                <p>📩 <b>Action Plan:</b> Отправьте мне в личные сообщения кодовое слово <b class="keyword">ВНУТРЯНКА</b>, и я дам пошаговый план, как вам внедрить эту индивидуальную модель. Нажмите кнопку «ХОЧУ ПЛАН» ниже!</p>
+            </div>`
         },
         B: {
             title: "Гибридная модель 🚀",
             desc: `<p><b>Ваш главный инсайт:</b> Вы находитесь в точке масштабирования. Продавать только через созвоны это путь к выгоранию, людей уже много. Но строить автоматический конвейер еще рано. Ваш выбор - <b>периодические живые запуски, набор в группы</b> или в комьюнити.</p>
-            </ul>`
+            
+            <div class="cta-box">
+                <p>📩 <b>Action Plan:</b> Отправьте мне в личные сообщения кодовое слово <b class="keyword">ВНУТРЯНКА</b>, и я дам пошаговый план, как вам внедрить эту гибридную модель. Нажмите кнопку «ХОЧУ ПЛАН» ниже!</p>
+            </div>`
         },
         C: {
             title: "Конвейерная модель 🏭",
             desc: `<p><b>Ваш главный инсайт:</b> Хватит продавать вручную! Ваш бизнес требует построения бизнес-системы. Ваша задача - выйти из операционки и сделать так, чтобы продажи шли 24/7. Здесь фокус смещается на <b>холодный трафик, автоматизацию и команду</b>.</p>
-            </ul>`
+            
+            <div class="cta-box">
+                <p>📩 <b>Action Plan:</b> Отправьте мне в личные сообщения кодовое слово <b class="keyword">ВНУТРЯНКА</b>, и я дам пошаговый план, как вам внедрить эту конвейерную модель. Нажмите кнопку «ХОЧУ ПЛАН» ниже!</p>
+            </div>`
         }
     };
 
